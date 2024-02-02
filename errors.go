@@ -1,4 +1,4 @@
-package gopool
+package taskpool
 
 import "errors"
 
