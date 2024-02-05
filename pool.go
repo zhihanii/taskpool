@@ -22,7 +22,7 @@ var (
 )
 
 const (
-	DefaultPoolCapacity    = 10000
+	DefaultPoolCapacity    = 15000
 	DefaultExpiredDuration = time.Second
 
 	nowTimerInterval = 500 * time.Millisecond
