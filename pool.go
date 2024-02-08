@@ -153,7 +153,13 @@ func (p *Pool) addWaiting(delta int) {
 }
 
 func (p *Pool) nowTime() time.Time {
-	return p.now.Load().(time.Time)
+	//return p.now.Load().(time.Time)
+	v := p.now.Load()
+	if v != nil {
+		return v.(time.Time)
+	} else {
+		return time.Now()
+	}
 }
 
 func (p *Pool) getWorker() (w *worker) {
