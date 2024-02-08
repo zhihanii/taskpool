@@ -34,7 +34,7 @@ const (
 )
 
 func Init(capacity int, opts ...Option) {
-	defaultPool, _ = NewPool(capacity, WithMaxBlockingTasks(10), WithNonBlocking())
+	defaultPool, _ = NewPool(capacity, opts...)
 }
 
 // Submit 提交task
