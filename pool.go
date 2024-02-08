@@ -22,7 +22,7 @@ var (
 )
 
 const (
-	DefaultPoolCapacity    = 15000
+	DefaultPoolCapacity    = 10
 	DefaultExpiredDuration = time.Second
 
 	nowTimerInterval = 500 * time.Millisecond
@@ -32,6 +32,10 @@ const (
 	opened = iota
 	closed
 )
+
+func Init(capacity int, opts ...Option) {
+	defaultPool, _ = NewPool(capacity, WithMaxBlockingTasks(10), WithNonBlocking())
+}
 
 // Submit 提交task
 func Submit(ctx context.Context, task func()) error {
